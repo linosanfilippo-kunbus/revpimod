@@ -1,0 +1,12 @@
+
+revpid (revpi userspace daemon)
+
+
+The revpi daemon constantly polls the analog and digital input lines and provides fast access to 
+the read values. This is required if the revpi_control library is initialized with REVPI_CTRL_ACCESS_DAEMON.
+
+If you want this for ARM build with
+
+#  make CC=<ARM_COMPILER>
+
+Note: to avoid build errors, first build the revpi_control library before building the daemon.

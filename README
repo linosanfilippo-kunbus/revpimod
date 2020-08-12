@@ -1,0 +1,9 @@
+
+revpimod kernel module
+Build with:
+
+make KDIR=<PATH_TO_KERNEL_DIR>
+
+If you want to build for ARM also specify the arm compiler:
+
+make KDIR=<PATH_TO_KERNEL_DIR> CC=<ARM-COMPILER>

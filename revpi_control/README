@@ -1,0 +1,18 @@
+
+
+
+
+Hardware Setup:
+The sample program "revpi_control_test" assumes that digital output 1 is physically wired
+with digital input 1. 
+
+Program Execution:
+The sample program "revpi_control_test" first sets all digital outputs (0 to 7) to zero. Then
+it sets the digital outputs 0, 1, 3, 4, 5 and 7 to 1. It then enters a loop and waits for 
+the digital input 1 to return 1. If this value is perceived the loop is left.
+
+A timestamp is taken before the digital outputs are set and after the above mentioned loop is left.
+The time difference between both timestamps is printed to the console.
+
+
+ 
