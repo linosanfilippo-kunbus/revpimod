@@ -27,14 +27,51 @@
 #define REVPI_CTRL_SETTING_CORE_TEMP	0x10000
 
 
+/**
+ * struct revpi_control_setting - Specify which type to read/write
+ *
+ * @type: the type of information to read or write.
+ * @value: the read value as a result of a call to
+ *         revpi_control_read_settings() or the value to be written by
+ *         means of revpi_control_write_settings().
+ */
 struct revpi_control_setting {
 	unsigned int type;
 	unsigned int value;
 };
 
+/**
+ * revpi_control_init() - Initialize the revpi control library
+ * @type: The access type to use for reading digital/analog input signals
+ *
+ * Initialize the revpi control api for direct access to the revpimod
+ * kernel module (REVPI_CTRL_ACCESS_DIRECT) or access by means of the
+ * revpid daemon (REVPI_CTRL_ACCESS_DAEMON). The latter requires the
+ * daemon to be running.
+ */
 int revpi_control_init(unsigned int type);
+
+/**
+ * revpi_control_release() - Release the revpi control library
+ *
+ */
 void revpi_control_release(void);
+
+/**
+ * revpi_control_write_settings() - Write values to digital/analog outputs.
+ *
+ * @settings an array of control settings that specify which
+	     digital/analog output lines to write.
+ */
 int revpi_control_write_settings(struct revpi_control_setting *settings, unsigned int num);
+
+
+/**
+ * revpi_control_read_settings() - Read values from digital/analog inputs.
+ *
+ * @settings an array of control settings that specify which
+	     digital/analog input lines to read.
+ */
 int revpi_control_read_settings(struct revpi_control_setting *settings, unsigned int num);
 
 #endif /* _REVPI_CONTROL_H */
