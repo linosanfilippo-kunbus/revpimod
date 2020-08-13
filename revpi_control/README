@@ -1,7 +1,14 @@
 
++++ revpi control library +++
+The revpi control library provides a simple API to read and write digital
+and analog values by means of the revpimod kernel module.
+
+The library can be initialized to retrieve digital/analog input values
+directly from the revpimod kernel module or from a userspace daemon.
+The latter requires the daemon to be running before the library is initialized.
 
 
-
++++ revpi control test program +++
 Hardware Setup:
 The sample program "revpi_control_test" assumes that digital output 1 is physically wired
 with digital input 1. 
@@ -13,6 +20,11 @@ the digital input 1 to return 1. If this value is perceived the loop is left.
 
 A timestamp is taken before the digital outputs are set and after the above mentioned loop is left.
 The time difference between both timestamps is printed to the console.
+
+Build:
+# make
+or
+# make CC=<ARM_COMPILER> for ARM binary
 
 
  
